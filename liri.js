@@ -73,10 +73,39 @@ function spotifyLookup(err, data) {
     console.log(data.tracks.items[0].album.name)
   }
 }
- function searchSpotify() {
+ function sear() {
   spotify.search({ type: 'track', query: input }, spotifyLookup)
  }
   
+
+var request = require("request"); 
+
+
+var queryUrl = 'http://www.omdbapi.com/?t=' + input +'&y=&plot=short&tomatoes=true&r=json';
+
+function omdbLookup(err, resp, body) {
+console.log(queryUrl);
+
+if (!err && resp.statusCode === 200) {
+
+console.log("\n" + JSON.parse(body).Title);
+console.log("Rated: " + JSON.parse(body).Rated);
+console.log("Released: " + JSON.parse(body).Released);
+console.log("IMdb rating: " + JSON.parse(body).imdbRating)
+console.log("Country: " + JSON.parse(body).Country)
+console.log("Plot: " + JSON.parse(body).Plot)
+console.log("Starring: " + JSON.parse(body).Actors)
+console.log("Rotten Tomatoes: " + JSON.parse(body).tomatoRating)
+console.log(JSON.parse(body).tomatoURL)
+
+}
+}
+
+
+function searchMovies() {
+request(queryUrl, omdbLookup)
+}
+
 
 
 
@@ -88,6 +117,13 @@ switch (action) {
   case 'spotify-this-song':
   searchSpotify()
     break;
+
+    case 'movie-this': 
+    searchMovies()
+    break;
+
+    default:
+    console.log("Invalid Request")
 }
 
 
