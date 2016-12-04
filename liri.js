@@ -1,6 +1,12 @@
 
 var action = process.argv[2]
-var input = process.argv[3]
+var input;
+
+for (i = 3; i < process.argv.length; i++) { 
+input =    process.argv[i]
+}
+
+
 
 
 
@@ -73,7 +79,7 @@ function spotifyLookup(err, data) {
     console.log(data.tracks.items[0].album.name)
   }
 }
- function sear() {
+ function searchSpotify() {
   spotify.search({ type: 'track', query: input }, spotifyLookup)
  }
   
