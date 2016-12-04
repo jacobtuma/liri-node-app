@@ -3,27 +3,8 @@ var action = process.argv[2]
 var input;
 
 for (i = 3; i < process.argv.length; i++) { 
-input =    process.argv[i]
+input =   process.argv[i]
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -127,6 +108,10 @@ switch (action) {
     case 'movie-this': 
     searchMovies()
     break;
+
+    case 'do-this':
+
+    
 
     default:
     console.log("Invalid Request")
