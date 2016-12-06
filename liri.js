@@ -1,10 +1,13 @@
 
 var action = process.argv[2]
-var input;
+var input = process.argv[3]
 
 for (i = 3; i < process.argv.length; i++) { 
-input =   process.argv[i]
+input +=  "+" + process.argv[i]
 }
+
+
+
 
 
 
@@ -111,7 +114,7 @@ switch (action) {
 
     case 'do-this':
 
-    
+
 
     default:
     console.log("Invalid Request")
